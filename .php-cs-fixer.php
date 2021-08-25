@@ -2,7 +2,8 @@
 
 $finder =
     PhpCsFixer\Finder::create()
-    ->in([__DIR__])
+    ->in([__DIR__ . '/app', __DIR__ . '/tests', __DIR__ . '/routes', __DIR__ . '/config', __DIR__ . '/database'])
+    ->notName("*.blade.php")
 ;
 
 $config = new PhpCsFixer\Config();

@@ -15,3 +15,4 @@ yarn-error.log
 /.vscode
 .idea
 .env.testing.example
+.php-cs-fixer.cache
