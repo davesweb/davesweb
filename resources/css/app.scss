@@ -1,0 +1,70 @@
+@import "variables";
+
+@import "~bootstrap";
+
+@import "~@fortawesome/fontawesome-free/scss/fontawesome";
+@import "~@fortawesome/fontawesome-free/scss/regular";
+@import "~@fortawesome/fontawesome-free/scss/brands";
+@import "~@fortawesome/fontawesome-free/scss/v4-shims";
+
+@import "https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@1,700&display=swap";
+
+$flag-icon-css-path: '~flag-icon-css/flags';
+$include: gb, nl, de;
+@import '~flag-icon-css/sass/flag-icon';
+
+.flag-icon-en {
+    background-image: url(#{$flag-icon-css-path}#{$flag-icon-rect-path}/gb.svg);
+    &.flag-icon-squared {
+        background-image: url(#{$flag-icon-css-path}#{$flag-icon-square-path}/gb.svg);
+    }
+}
+
+.sidebar {
+    .logo {
+        .logo-text {
+            font-family: 'Merriweather', serif;
+            font-size: 2.5rem;
+            text-decoration: none;
+        }
+    }
+
+    .search {
+        button[type="submit"] {
+            background-color: $white;
+
+            &:hover {
+                background-color: $secondary;
+            }
+        }
+    }
+
+    .navigation {
+        a {
+            text-decoration: none;
+
+            &:hover {
+                color: $primary !important;
+            }
+        }
+    }
+}
+
+.fs-7 {
+    font-size: 0.875rem;
+}
+.fs-8 {
+    font-size: 0.75rem;
+}
+.fs-9 {
+    font-size: 0.625rem;
+}
+.fs-10 {
+    font-size: 0.5rem;
+}
+
+@each $name, $value in $grays {
+    .text-gray-#{$name} {
+        color: $value !important;
+    }
+}

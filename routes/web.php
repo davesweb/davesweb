@@ -13,6 +13,5 @@ use Illuminate\Routing\Router;
 |
 */
 
-// @var Router $router
-
+/* @var Router $router */
 $router->view('/', 'homepage')->name('homepage');

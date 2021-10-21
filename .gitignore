@@ -16,3 +16,9 @@ yarn-error.log
 .idea
 .env.testing.example
 .php-cs-fixer.cache
+public/css
+public/js
+public/fonts/vendor
+public/images/vendor
+public/vendor
+public/mix-manifest.json
