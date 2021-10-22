@@ -39,4 +39,23 @@ class PostController
             'posts' => $posts,
         ]);
     }
+
+    public function archive(int $year, int $month): Renderable
+    {
+        $posts = Post::query()
+            ->whereHas('translations', function (Builder $query) {
+                $query->where('locale', '=', app()->getLocale());
+            })
+            ->with(['translations'])
+            ->where('publish_date', '<=', now())
+            ->where('status', '=', Post::STATUS_PUBLISHED)
+            ->whereRaw('YEAR(publish_date) = ?', [$year])
+            ->whereRaw('MONTH(publish_date) = ?', [$month])
+            ->paginate()
+        ;
+
+        return view('blog.homepage', [
+            'posts' => $posts,
+        ]);
+    }
 }

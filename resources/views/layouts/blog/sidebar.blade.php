@@ -53,7 +53,7 @@
             @foreach($archives as $archive)
                 <li class="list-group-item bg-transparent px-0 d-flex justify-content-between align-items-start">
                     <span class="me-auto">
-                        <a href="{{ route('archives.index', [$archive->publish_year, $archive->publish_month]) }}" class="text-dark">
+                        <a href="{{ route('archives.show', [$archive->publish_year, $archive->publish_month]) }}" class="text-dark">
                             {{ ucfirst(humanDate($archive->publish_year, $archive->publish_month)) }}
                         </a>
                     </span>
