@@ -2,6 +2,7 @@
 
 namespace App\Models\Blog;
 
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Davesweb\LaravelTranslatable\Models\TranslationModel;
 
@@ -11,5 +12,7 @@ use Davesweb\LaravelTranslatable\Models\TranslationModel;
  */
 class CategoryTranslation extends TranslationModel
 {
+    use HasFactory;
+
     protected string $translates = Category::class;
 }

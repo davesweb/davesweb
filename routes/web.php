@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Blog\HomepageController;
 use Illuminate\Routing\Router;
 
 /*
@@ -14,4 +15,7 @@ use Illuminate\Routing\Router;
 */
 
 /* @var Router $router */
-$router->view('/', 'homepage')->name('homepage');
+$router->get('/', [HomepageController::class, 'index'])->name('homepage');
+
+$router->get('categories', function() {})->name('categories');
+$router->get('category/{category_translation:slug}', function() {})->name('categories.show');

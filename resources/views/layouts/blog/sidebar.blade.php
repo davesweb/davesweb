@@ -11,25 +11,19 @@
         <form>
             <div class="input-group">
                 <input type="search" name="q" class="form-control p-3 border-secondary" placeholder="{{ __('Type something and hit enter') }}" aria-label="{{ __('Search') }}" aria-describedby="search-button" />
-                <button type="submit" class="btn btn-outline-secondary" id="search-button">Button</button>
+                <button type="submit" class="btn btn-outline-secondary" id="search-button"><i class="fas fa-search"></i></button>
             </div>
         </form>
     </div>
     <nav class="navigation p-4">
         <h3 class="h5 fst-italic fw-normal">{{ __('Categories') }}</h3>
         <ul class="list-group list-group-flush">
-            <li class="list-group-item bg-transparent px-0 d-flex justify-content-between align-items-start">
-                <span class="me-auto"><a href="#" class="text-dark">PHP</a></span>
-                <span class="text-muted">(5)</span>
-            </li>
-            <li class="list-group-item bg-transparent px-0 d-flex justify-content-between align-items-start">
-                <span class="me-auto"><a href="#" class="text-dark">Projects</a></span>
-                <span class="text-muted">(3)</span>
-            </li>
-            <li class="list-group-item bg-transparent px-0 d-flex justify-content-between align-items-start">
-                <span class="me-auto"><a href="#" class="text-dark">Lego</a></span>
-                <span class="text-muted">(1)</span>
-            </li>
+            @foreach($categories as $category)
+                <li class="list-group-item bg-transparent px-0 d-flex justify-content-between align-items-start">
+                    <span class="me-auto"><a href="{{ route('categories.show', [$category->translation()]) }}" class="text-dark">{{ $category->translate('title') }}</a></span>
+                    <span class="text-muted">({{ random_int(1, 10) }})</span>
+                </li>
+            @endforeach
         </ul>
     </nav>
     <div class="text-block p-4">
