@@ -16,6 +16,7 @@ use App\Http\Controllers\Blog\HomepageController;
 */
 
 /* @var Router $router */
+
 $router->get('/', [HomepageController::class, 'index'])->name('homepage');
 
 $router->get('categories', function () {})->name('categories');

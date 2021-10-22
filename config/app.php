@@ -53,6 +53,8 @@ return [
 
     'url' => env('APP_URL', 'http://localhost'),
 
+    'locale_url' => env('APP_LOCALE_URL', 'http://localhost?locale={locale}'),
+
     'asset_url' => env('ASSET_URL', null),
 
     /*
@@ -80,6 +82,23 @@ return [
     */
 
     'locale' => 'en',
+
+    'default_locale' => 'nl',
+
+    'available_locales' => [
+        'nl' => [
+            'icon' => 'flag-icon flag-icon-nl',
+            'name' => 'Nederlands',
+        ],
+        'en' => [
+            'icon' => 'flag-icon flag-icon-en',
+            'name' => 'English',
+        ],
+        'de' => [
+            'icon' => 'flag-icon flag-icon-de',
+            'name' => 'Deutsch',
+        ],
+    ],
 
     /*
     |--------------------------------------------------------------------------

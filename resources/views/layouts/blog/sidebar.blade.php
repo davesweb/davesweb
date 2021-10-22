@@ -2,9 +2,9 @@
     <div class="logo p-4">
         <h1><a href="{{ route('homepage') }}" class="logo-text">Davesweb</a></h1>
         <div class="locales">
-            <a href="#"><span class="flag-icon flag-icon-nl"></span></a>
-            <a href="#"><span class="flag-icon flag-icon-en"></span></a>
-            <a href="#"><span class="flag-icon flag-icon-de"></span></a>
+            @foreach($availableLocales as $abbr => $locale)
+                <a href="{{ localeUrl($abbr) }}"><span class="{{ $locale['icon'] }}" title="{{ $locale['name'] }}"></span></a>
+            @endforeach
         </div>
     </div>
     <div class="search p-4">

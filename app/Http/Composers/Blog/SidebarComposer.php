@@ -22,6 +22,7 @@ class SidebarComposer
     {
         $this->withCategories($view);
         $this->withArchive($view);
+        $this->withLocales($view);
 
         return $view;
     }
@@ -52,6 +53,15 @@ class SidebarComposer
         });
 
         $view->with('archives', $archives);
+
+        return $view;
+    }
+
+    private function withLocales(View $view): View
+    {
+        $availableLocales = config('app.available_locales', []);
+
+        $view->with('availableLocales', $availableLocales);
 
         return $view;
     }
