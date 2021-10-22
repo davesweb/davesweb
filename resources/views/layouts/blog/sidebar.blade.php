@@ -8,9 +8,9 @@
         </div>
     </div>
     <div class="search p-4">
-        <form>
+        <form method="get" action="{{ route('posts.search') }}">
             <div class="input-group">
-                <input type="search" name="q" class="form-control p-3 border-secondary" placeholder="{{ __('Type something and hit enter') }}" aria-label="{{ __('Search') }}" aria-describedby="search-button" />
+                <input type="search" name="q" class="form-control p-3 border-secondary" placeholder="{{ __('Type something and hit enter') }}" aria-label="{{ __('Search') }}" aria-describedby="search-button" value="{{ request()->get('q') }}" />
                 <button type="submit" class="btn btn-outline-secondary" id="search-button"><i class="fas fa-search"></i></button>
             </div>
         </form>

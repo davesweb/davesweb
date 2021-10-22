@@ -2,7 +2,10 @@
 
 namespace App\Http\Controllers\Blog;
 
+use App\Models\Blog\Post;
+use Illuminate\Http\Request;
 use App\Models\Blog\PostTranslation;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Contracts\Support\Renderable;
 
 class PostController
@@ -11,6 +14,29 @@ class PostController
     {
         return view('blog.post', [
             'post' => $postTranslation->getTranslatesModel(),
+        ]);
+    }
+
+    public function search(Request $request): Renderable
+    {
+        $searchQuery = $request->get('q');
+
+        $posts = Post::query()
+            ->whereHas('translations', function (Builder $query) use ($searchQuery) {
+                $query->where('locale', '=', app()->getLocale());
+                $query->where(function (Builder $query) use ($searchQuery) {
+                    $query->where('title', 'LIKE', '%' . $searchQuery . '%');
+                    $query->orWhere('content', 'LIKE', '%' . $searchQuery . '%');
+                });
+            })
+            ->with(['translations'])
+            ->where('publish_date', '<=', now())
+            ->where('status', '=', Post::STATUS_PUBLISHED)
+            ->paginate()
+        ;
+
+        return view('blog.homepage', [
+            'posts' => $posts,
         ]);
     }
 }

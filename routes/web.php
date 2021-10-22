@@ -24,4 +24,6 @@ $router->get('category/{category_translation:slug}', function () {})->name('cate
 
 $router->get('archive/{year}/{month}', function () {})->name('archives.index');
 
+$router->get('search', [PostController::class, 'search'])->name('posts.search');
+
 $router->get('{post_translation:slug}', [PostController::class, 'show'])->name('posts.show');
