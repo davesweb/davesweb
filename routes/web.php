@@ -21,6 +21,6 @@ $router->get('/', [HomepageController::class, 'index'])->name('homepage');
 $router->get('categories', function () {})->name('categories');
 $router->get('category/{category_translation:slug}', function () {})->name('categories.show');
 
-$router->get('archive/{year}/{month}', function(){})->name('archives.index');
+$router->get('archive/{year}/{month}', function () {})->name('archives.index');
 
 $router->get('{post_translation:slug}', [PostController::class, 'show'])->name('posts.show');

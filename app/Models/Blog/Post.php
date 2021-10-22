@@ -5,7 +5,7 @@ namespace App\Models\Blog;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Collection;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\HasOne;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Davesweb\LaravelTranslatable\Traits\HasTranslations;
 use Davesweb\LaravelTranslatable\Models\TranslationModel;
@@ -39,9 +39,9 @@ class Post extends Model
         'publish_date' => 'datetime',
     ];
 
-    public function category(): HasOne
+    public function category(): BelongsTo
     {
-        return $this->hasOne(Category::class, 'category_id', 'id');
+        return $this->belongsTo(Category::class, 'category_id', 'id');
     }
 
     public function getIntro(): string

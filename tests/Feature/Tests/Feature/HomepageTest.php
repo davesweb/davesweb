@@ -3,7 +3,6 @@
 namespace Tests\Feature;
 
 use Tests\TestCase;
-use Illuminate\Foundation\Testing\DatabaseMigrations;
 use Illuminate\Foundation\Testing\DatabaseTransactions;
 
 /**
@@ -12,14 +11,25 @@ use Illuminate\Foundation\Testing\DatabaseTransactions;
  */
 class HomepageTest extends TestCase
 {
-    //use DatabaseMigrations;
-    //use DatabaseTransactions;
+    use DatabaseTransactions;
 
     public function testItShowsHomepage(): void
     {
         $response = $this->get(route('homepage'));
 
         $response->assertSuccessful();
-        $response->assertViewIs('homepage');
+        $response->assertViewIs('blog.homepage');
+    }
+
+    public function testItShowsCategoriesInSidebar(): void
+    {
+    }
+
+    public function testItShowsArhivesInSidebar(): void
+    {
+    }
+
+    public function testItShowsPosts(): void
+    {
     }
 }

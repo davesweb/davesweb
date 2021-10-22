@@ -14,5 +14,10 @@ class CategoryTranslation extends TranslationModel
 {
     use HasFactory;
 
+    /**
+     * {@inheritdoc}
+     */
+    public $timestamps = false;
+
     protected string $translates = Category::class;
 }

@@ -12,9 +12,8 @@ class CategoryTranslationFactory extends Factory
     public function definition()
     {
         return [
-            'title'  => $this->faker->words(),
-            'slug'   => $this->faker->slug(),
-            'locale' => $this->faker->locale(),
+            'title' => $this->faker->sentence(),
+            'slug'  => $this->faker->slug(),
         ];
     }
 }
