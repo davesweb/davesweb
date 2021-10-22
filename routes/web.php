@@ -1,7 +1,8 @@
 <?php
 
-use App\Http\Controllers\Blog\HomepageController;
 use Illuminate\Routing\Router;
+use App\Http\Controllers\Blog\PostController;
+use App\Http\Controllers\Blog\HomepageController;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,3 +20,5 @@ $router->get('/', [HomepageController::class, 'index'])->name('homepage');
 
 $router->get('categories', function() {})->name('categories');
 $router->get('category/{category_translation:slug}', function() {})->name('categories.show');
+
+$router->get('{post_translation:slug}', [PostController::class, 'show'])->name('posts.show');
