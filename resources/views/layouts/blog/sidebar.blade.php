@@ -52,7 +52,11 @@
         <ul class="list-group list-group-flush">
             @foreach($archives as $archive)
                 <li class="list-group-item bg-transparent px-0 d-flex justify-content-between align-items-start">
-                    <span class="me-auto"><a href="#" class="text-dark">{{ $archive->publish_month }} {{ $archive->publish_year }}</a></span>
+                    <span class="me-auto">
+                        <a href="{{ route('archives.index', [$archive->publish_year, $archive->publish_month]) }}" class="text-dark">
+                            {{ $archive->publish_month }} {{ $archive->publish_year }}
+                        </a>
+                    </span>
                     <span class="text-muted">({{ $archive->total }})</span>
                 </li>
             @endforeach
