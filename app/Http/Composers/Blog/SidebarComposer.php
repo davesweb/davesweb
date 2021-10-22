@@ -28,7 +28,7 @@ class SidebarComposer
 
     private function withCategories(View $view): View
     {
-        $categories = Category::query()/*->withCount(['posts'])*/ ->with(['translations'])->get();
+        $categories = Category::query()->withCount(['posts'])->with(['translations'])->get();
 
         $view->with('categories', $categories);
 

@@ -21,7 +21,7 @@
             @foreach($categories as $category)
                 <li class="list-group-item bg-transparent px-0 d-flex justify-content-between align-items-start">
                     <span class="me-auto"><a href="{{ route('categories.show', [$category->translation()]) }}" class="text-dark">{{ $category->translate('title') }}</a></span>
-                    <span class="text-muted">({{ random_int(1, 10) }})</span>
+                    <span class="text-muted">({{ $category->posts_count }})</span>
                 </li>
             @endforeach
         </ul>
@@ -50,18 +50,12 @@
     <nav class="navigation p-4">
         <h3 class="h5 fst-italic fw-normal">{{ __('Archives') }}</h3>
         <ul class="list-group list-group-flush">
-            <li class="list-group-item bg-transparent px-0 d-flex justify-content-between align-items-start">
-                <span class="me-auto"><a href="#" class="text-dark">October 2021</a></span>
-                <span class="text-muted">(5)</span>
-            </li>
-            <li class="list-group-item bg-transparent px-0 d-flex justify-content-between align-items-start">
-                <span class="me-auto"><a href="#" class="text-dark">September 2021</a></span>
-                <span class="text-muted">(3)</span>
-            </li>
-            <li class="list-group-item bg-transparent px-0 d-flex justify-content-between align-items-start">
-                <span class="me-auto"><a href="#" class="text-dark">January 2021</a></span>
-                <span class="text-muted">(1)</span>
-            </li>
+            @foreach($archives as $archive)
+                <li class="list-group-item bg-transparent px-0 d-flex justify-content-between align-items-start">
+                    <span class="me-auto"><a href="#" class="text-dark">{{ $archive->publish_month }} {{ $archive->publish_year }}</a></span>
+                    <span class="text-muted">({{ $archive->total }})</span>
+                </li>
+            @endforeach
         </ul>
     </nav>
     <div class="social p-4 text-center">
@@ -70,10 +64,10 @@
         <a href="https://www.reddit.com/user/davekuh" title="Reddit" target="_blank" class="text-dark fs-3"><i class="fa fa-reddit-square"></i></a>
     </div>
     <div class="copyright p-4">
-                        <span class="fs-7 text-muted fst-italic">
-                            &copy;2005-{{ date('Y') }} Davesweb.nl -
-                            {!! __('The source code for this website is open source and available on <a href="https://github.com/davesweb" target="_blank">my Github</a>.') !!}
-                            {!! __('All content is licenced under the <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank">CC BY license</a> unless stated otherwise.') !!}
-                        </span>
+        <span class="fs-7 text-muted fst-italic">
+            &copy;2005-{{ date('Y') }} Davesweb.nl -
+            {!! __('The source code for this website is open source and available on <a href="https://github.com/davesweb" target="_blank">my Github</a>.') !!}
+            {!! __('All content is licenced under the <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank">CC BY license</a> unless stated otherwise.') !!}
+        </span>
     </div>
 </nav>
