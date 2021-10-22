@@ -4,11 +4,12 @@ namespace App\Http\Controllers\Blog;
 
 use App\Models\Blog\Post;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 use App\Models\Blog\PostTranslation;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Contracts\Support\Renderable;
 
-class PostController
+class PostController extends Controller
 {
     public function show(PostTranslation $postTranslation): Renderable
     {
@@ -35,7 +36,7 @@ class PostController
             ->paginate()
         ;
 
-        return view('blog.homepage', [
+        return view('blog.index', [
             'posts' => $posts,
         ]);
     }
@@ -54,7 +55,7 @@ class PostController
             ->paginate()
         ;
 
-        return view('blog.homepage', [
+        return view('blog.index', [
             'posts' => $posts,
         ]);
     }

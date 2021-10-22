@@ -21,7 +21,7 @@ class HomepageController extends Controller
             ->paginate()
         ;
 
-        return view('blog.homepage', [
+        return view('blog.index', [
             'posts' => $posts,
         ]);
     }
