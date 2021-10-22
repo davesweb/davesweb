@@ -18,7 +18,7 @@ use App\Http\Controllers\Blog\HomepageController;
 /* @var Router $router */
 $router->get('/', [HomepageController::class, 'index'])->name('homepage');
 
-$router->get('categories', function() {})->name('categories');
-$router->get('category/{category_translation:slug}', function() {})->name('categories.show');
+$router->get('categories', function () {})->name('categories');
+$router->get('category/{category_translation:slug}', function () {})->name('categories.show');
 
 $router->get('{post_translation:slug}', [PostController::class, 'show'])->name('posts.show');

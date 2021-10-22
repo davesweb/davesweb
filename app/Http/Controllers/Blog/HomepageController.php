@@ -14,10 +14,11 @@ class HomepageController extends Controller
             ->with(['translations'])
             ->where('publish_date', '<=', now())
             ->where('status', '=', Post::STATUS_PUBLISHED)
-            ->paginate();
+            ->paginate()
+        ;
 
         return view('blog.homepage', [
-            'posts' => $posts
+            'posts' => $posts,
         ]);
     }
 }
