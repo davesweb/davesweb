@@ -40,9 +40,10 @@ jobs:
       run: |
         mkdir -p database
         touch database/database.sqlite
-        php artisan migrate:fresh
     - name: Execute tests (Unit and Feature tests) via PHPUnit
       env:
         DB_CONNECTION: sqlite
         DB_DATABASE: database/database.sqlite
-      run: php artisan test --colors --testdox
+      run: |
+        php artisan migrate:fresh
+        php artisan test --colors --testdox
