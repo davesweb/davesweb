@@ -2,27 +2,16 @@
 
 namespace App\Http\Controllers\Blog;
 
-use App\Models\Blog\Post;
+use App\Services\PostService;
 use App\Http\Controllers\Controller;
-use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Contracts\Support\Renderable;
 
 class HomepageController extends Controller
 {
-    public function index(): Renderable
+    public function index(PostService $service): Renderable
     {
-        $posts = Post::query()
-            ->whereHas('translations', function (Builder $query) {
-                $query->where('locale', '=', app()->getLocale());
-            })
-            ->with(['translations'])
-            ->where('publish_date', '<=', now())
-            ->where('status', '=', Post::STATUS_PUBLISHED)
-            ->paginate()
-        ;
-
         return view('blog.index', [
-            'posts' => $posts,
+            'posts' => $service->getHomepagePosts(),
         ]);
     }
 }

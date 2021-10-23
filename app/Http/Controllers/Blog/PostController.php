@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Blog;
 
 use App\Models\Blog\Post;
+use App\Services\PostService;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\Blog\PostTranslation;
@@ -18,42 +19,20 @@ class PostController extends Controller
         ]);
     }
 
-    public function search(Request $request): Renderable
+    public function search(Request $request, PostService $service): Renderable
     {
         $searchQuery = $request->get('q');
 
-        $posts = Post::query()
-            ->whereHas('translations', function (Builder $query) use ($searchQuery) {
-                $query->where('locale', '=', app()->getLocale());
-                $query->where(function (Builder $query) use ($searchQuery) {
-                    $query->where('title', 'LIKE', '%' . $searchQuery . '%');
-                    $query->orWhere('content', 'LIKE', '%' . $searchQuery . '%');
-                });
-            })
-            ->with(['translations'])
-            ->where('publish_date', '<=', now())
-            ->where('status', '=', Post::STATUS_PUBLISHED)
-            ->paginate()
-        ;
+        $posts = $service->searchPosts($searchQuery);
 
         return view('blog.index', [
             'posts' => $posts,
         ]);
     }
 
-    public function archive(int $year, int $month): Renderable
+    public function archive(PostService $service, int $year, int $month): Renderable
     {
-        $posts = Post::query()
-            ->whereHas('translations', function (Builder $query) {
-                $query->where('locale', '=', app()->getLocale());
-            })
-            ->with(['translations'])
-            ->where('publish_date', '<=', now())
-            ->where('status', '=', Post::STATUS_PUBLISHED)
-            ->whereRaw('YEAR(publish_date) = ?', [$year])
-            ->whereRaw('MONTH(publish_date) = ?', [$month])
-            ->paginate()
-        ;
+        $posts = $service->getArchivedPosts($year, $month);
 
         return view('blog.index', [
             'posts' => $posts,

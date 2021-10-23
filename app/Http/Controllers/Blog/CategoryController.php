@@ -3,35 +3,29 @@
 namespace App\Http\Controllers\Blog;
 
 use App\Models\Blog\Category;
+use App\Services\CategoryService;
 use App\Http\Controllers\Controller;
 use App\Models\Blog\CategoryTranslation;
-use Illuminate\Database\Eloquent\Builder;
+use App\Services\PostService;
 use Illuminate\Contracts\Support\Renderable;
 
 class CategoryController extends Controller
 {
-    public function index(): Renderable
+    public function index(CategoryService $service): Renderable
     {
-        $categories = Category::query()
-            ->whereHas('translations', function (Builder $query) {
-                $query->where('locale', '=', app()->getLocale());
-            })
-            ->with(['translations'])
-            ->withCount(['posts'])
-            ->paginate()
-        ;
+        $categories = $service->allWithCount();
 
         return view('blog.categories.index', [
             'categories' => $categories,
         ]);
     }
 
-    public function show(CategoryTranslation $categoryTranslation): Renderable
+    public function show(PostService $service, CategoryTranslation $categoryTranslation): Renderable
     {
         /** @var Category $category */
         $category = $categoryTranslation->getTranslatesModel();
 
-        $posts = $category->posts()->paginate();
+        $posts = $service->allByCategory($category);
 
         return view('blog.index', [
             'posts' => $posts,

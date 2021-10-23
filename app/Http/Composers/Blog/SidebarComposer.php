@@ -5,8 +5,8 @@ namespace App\Http\Composers\Blog;
 use DateInterval;
 use App\Models\Blog\Post;
 use Illuminate\View\View;
-use App\Models\Blog\Category;
 use Illuminate\Cache\Repository;
+use App\Services\CategoryService;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Database\Eloquent\Builder;
 
@@ -14,9 +14,12 @@ class SidebarComposer
 {
     private Repository $repository;
 
-    public function __construct(Repository $repository)
+    private CategoryService $categoryService;
+
+    public function __construct(Repository $repository, CategoryService $categoryService)
     {
-        $this->repository = $repository;
+        $this->repository      = $repository;
+        $this->categoryService = $categoryService;
     }
 
     public function compose(View $view): View
@@ -30,9 +33,7 @@ class SidebarComposer
 
     private function withCategories(View $view): View
     {
-        $categories = Category::query()->whereHas('translations', function (Builder $query) {
-            $query->where('locale', '=', app()->getLocale());
-        })->withCount(['posts'])->with(['translations'])->get();
+        $categories = $this->categoryService->allWithCount();
 
         $view->with('categories', $categories);
 
