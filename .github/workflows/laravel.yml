@@ -30,6 +30,14 @@ jobs:
           ${{ runner.os }}-php-
     - name: Install dependencies
       run: composer install --prefer-dist --no-progress
+    - name: use Node
+      uses: actions/setup-node@v1
+      with:
+        node-version: 12.x
+    - name: Install NPM dependencies
+      run: |
+        npm install
+        npm run prod
     - name: Generate key
       run: php artisan key:generate
     - name: Directory Permissions
