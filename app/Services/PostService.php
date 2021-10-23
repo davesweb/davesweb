@@ -28,6 +28,7 @@ class PostService
             ->with(['translations'])
             ->where('publish_date', '<=', now())
             ->where('status', '=', Post::STATUS_PUBLISHED)
+            ->orderBy('publish_date', 'DESC')
             ->paginate()
         ;
     }
@@ -50,6 +51,7 @@ class PostService
             ->with(['translations'])
             ->where('publish_date', '<=', now())
             ->where('status', '=', Post::STATUS_PUBLISHED)
+            ->orderBy('publish_date', 'DESC')
             ->paginate()
         ;
     }
@@ -63,6 +65,7 @@ class PostService
             ->with(['translations'])
             ->where('publish_date', '<=', now())
             ->where('status', '=', Post::STATUS_PUBLISHED)
+            ->orderBy('publish_date', 'DESC')
             ->paginate()
             ;
     }
@@ -76,6 +79,7 @@ class PostService
             ->with(['translations'])
             ->where('publish_date', '<=', now())
             ->where('status', '=', Post::STATUS_PUBLISHED)
+            ->orderBy('publish_date', 'DESC')
         ;
     }
 }
