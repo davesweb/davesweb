@@ -3,6 +3,7 @@
 namespace App\Http\Composers\Blog;
 
 use DateInterval;
+use App\Models\Blog\Tag;
 use App\Models\Blog\Post;
 use Illuminate\View\View;
 use Illuminate\Cache\Repository;
@@ -27,6 +28,7 @@ class SidebarComposer
         $this->withCategories($view);
         $this->withArchive($view);
         $this->withLocales($view);
+        $this->withTags($view);
 
         return $view;
     }
@@ -69,6 +71,23 @@ class SidebarComposer
         $availableLocales = config('app.available_locales', []);
 
         $view->with('availableLocales', $availableLocales);
+
+        return $view;
+    }
+
+    private function withTags(View $view): View
+    {
+        $tags = Tag::query()
+            ->whereHas('translations', function (Builder $query) {
+                $query->where('locale', '=', app()->getLocale());
+            })
+            ->withCount('posts')
+            ->orderBy('posts_count', 'DESC')
+            ->limit(15)
+            ->get()
+        ;
+
+        $view->with('tags', $tags);
 
         return $view;
     }

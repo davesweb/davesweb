@@ -12,7 +12,7 @@ class TagTranslationFactory extends Factory
     public function definition()
     {
         return [
-            'title'  => $this->faker->sentence(),
+            'title'  => $this->faker->word(),
             'slug'   => $this->faker->slug(),
             'locale' => $this->faker->locale(),
         ];
