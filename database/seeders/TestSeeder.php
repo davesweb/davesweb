@@ -21,9 +21,9 @@ class TestSeeder extends Seeder
                 CategoryTranslation::factory()
                     ->state(
                         new Sequence(
-                    ['locale' => 'en'],
-                    ['locale' => 'nl'],
-                )
+                            ['locale' => 'en'],
+                            ['locale' => 'nl'],
+                        )
                     )->count(2),
                 'translations'
             )
