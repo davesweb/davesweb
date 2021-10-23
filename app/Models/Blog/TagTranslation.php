@@ -9,7 +9,7 @@ use Davesweb\LaravelTranslatable\Models\TranslationModel;
  * @property int    $id
  * @property string $title
  */
-class TagTranslations extends TranslationModel
+class TagTranslation extends TranslationModel
 {
     use HasFactory;
 

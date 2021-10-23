@@ -15,7 +15,7 @@ class CreateTagsTable extends Migration
 
         Schema::create('tag_translations', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('post_id')->references('id')->on('tags')->cascadeOnUpdate()->cascadeOnDelete();
+            $table->foreignId('tag_id')->references('id')->on('tags')->cascadeOnUpdate()->cascadeOnDelete();
             $table->string('locale', 8)->index();
 
             $table->string('title');
