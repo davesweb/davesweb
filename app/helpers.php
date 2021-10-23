@@ -1,7 +1,9 @@
 <?php
 
+use App\Models\Setting;
 use Illuminate\Support\Str;
 use Illuminate\Support\Carbon;
+use Illuminate\Support\Collection;
 
 if (!function_exists('humanDate')) {
     function humanDate(int $year, int $month, ?int $day = null): string
@@ -27,5 +29,11 @@ if (!function_exists('localeUrl')) {
         }
 
         return (string) Str::of(config('app.locale_url'))->replace('{locale}', $abbr);
+    }
+}
+if (!function_exists('setting')) {
+    function setting(string|array $name): Setting|Collection
+    {
+        return Setting::findByName($name);
     }
 }

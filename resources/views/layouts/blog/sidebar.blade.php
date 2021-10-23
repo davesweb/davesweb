@@ -28,12 +28,7 @@
     </nav>
     <div class="text-block p-4">
         <h3 class="h5 fst-italic fw-normal">{{ __('About me') }}</h3>
-        <p>
-            {{ __('I\'m a full-stack software developer with 12 years experience. I write about PHP, Laravel, SQL and software development in general. I also write about my hobbies which includes Lego sets & Lego MOC\'s, crypto currency and much more.') }}
-        </p>
-        <p>
-            {!! __('Want to know more about me? Check out <a href="">my resume</a>, find me on social media or leave a comment here on my blog.') !!}
-        </p>
+        {!! setting('about-me')->render() !!}
     </div>
     <div class="tags p-4">
         <h3 class="h5 fst-italic fw-normal">{{ __('Tags') }}</h3>
@@ -57,15 +52,14 @@
         </ul>
     </nav>
     <div class="social p-4 text-center">
-        <a href="https://github.com/davesweb" title="Github" target="_blank" class="text-dark fs-3"><i class="fa fa-github-square"></i></a>
-        <a href="https://twitter.com/dwllemmens" title="Twitter" target="_blank" class="text-dark fs-3"><i class="fa fa-twitter-square"></i></a>
-        <a href="https://www.reddit.com/user/davekuh" title="Reddit" target="_blank" class="text-dark fs-3"><i class="fa fa-reddit-square"></i></a>
+        @foreach(setting('socials')->render() as $icon => $url)
+            <a href="{{ $url }}" target="_blank" class="text-dark fs-3"><i class="{{ $icon }}"></i></a>
+        @endforeach
     </div>
     <div class="copyright p-4">
         <span class="fs-7 text-muted fst-italic">
             &copy;2005-{{ date('Y') }} Davesweb.nl -
-            {!! __('The source code for this website is open source and available on <a href="https://github.com/davesweb" target="_blank">my Github</a>.') !!}
-            {!! __('All content is licenced under the <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank">CC BY license</a> unless stated otherwise.') !!}
+            {!! setting('copyright')->render() !!}
         </span>
     </div>
 </nav>
