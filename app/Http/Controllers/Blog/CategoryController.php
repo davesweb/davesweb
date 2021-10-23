@@ -3,10 +3,10 @@
 namespace App\Http\Controllers\Blog;
 
 use App\Models\Blog\Category;
+use App\Services\PostService;
 use App\Services\CategoryService;
 use App\Http\Controllers\Controller;
 use App\Models\Blog\CategoryTranslation;
-use App\Services\PostService;
 use Illuminate\Contracts\Support\Renderable;
 
 class CategoryController extends Controller

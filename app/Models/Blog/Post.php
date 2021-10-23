@@ -9,6 +9,7 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Davesweb\LaravelTranslatable\Traits\HasTranslations;
 use Davesweb\LaravelTranslatable\Models\TranslationModel;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
 /**
  * @property int                           $id
@@ -18,6 +19,7 @@ use Davesweb\LaravelTranslatable\Models\TranslationModel;
  * @property null|string                   $image
  * @property Category                      $category
  * @property Collection|TranslationModel[] $translations
+ * @property Collection|Tag[]              $tags
  */
 class Post extends Model
 {
@@ -26,8 +28,6 @@ class Post extends Model
 
     public const STATUS_DRAFT     = 0;
     public const STATUS_PUBLISHED = 1;
-
-    protected string $translation = PostTranslation::class;
 
     /**
      * {@inheritdoc}
@@ -42,6 +42,11 @@ class Post extends Model
     public function category(): BelongsTo
     {
         return $this->belongsTo(Category::class, 'category_id', 'id');
+    }
+
+    public function tags(): BelongsToMany
+    {
+        return $this->belongsToMany(Tag::class, 'post_tags', 'post_id', 'tag_id', 'id', 'id');
     }
 
     public function getIntro(): string

@@ -14,8 +14,6 @@ class PostTranslation extends TranslationModel
      */
     public $timestamps = false;
 
-    protected string $translates = Post::class;
-
     /**
      * {@inheritdoc}
      */

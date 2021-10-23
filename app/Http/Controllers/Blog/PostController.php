@@ -2,12 +2,10 @@
 
 namespace App\Http\Controllers\Blog;
 
-use App\Models\Blog\Post;
-use App\Services\PostService;
 use Illuminate\Http\Request;
+use App\Services\PostService;
 use App\Http\Controllers\Controller;
 use App\Models\Blog\PostTranslation;
-use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Contracts\Support\Renderable;
 
 class PostController extends Controller

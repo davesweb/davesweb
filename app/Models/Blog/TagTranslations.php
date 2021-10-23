@@ -6,9 +6,10 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Davesweb\LaravelTranslatable\Models\TranslationModel;
 
 /**
- * @property string $locale
+ * @property int    $id
+ * @property string $title
  */
-class CategoryTranslation extends TranslationModel
+class TagTranslations extends TranslationModel
 {
     use HasFactory;
 
@@ -16,4 +17,11 @@ class CategoryTranslation extends TranslationModel
      * {@inheritdoc}
      */
     public $timestamps = false;
+
+    /**
+     * {@inheritdoc}
+     */
+    protected $casts = [
+        'id' => 'integer',
+    ];
 }

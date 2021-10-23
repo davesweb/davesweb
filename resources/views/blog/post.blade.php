@@ -15,8 +15,8 @@
             <img src="{{ $post->image }}" alt="" class="w-100 mb-2" />
         @endif
 
-        <!-- @todo render json content correcty after editor is installed -->
-        {!! $post->translate('content') !!}
+        <!-- @todo render json content correctly after editor is installed -->
+        @json($post->translate('content'))
     </article>
 
 @endsection
