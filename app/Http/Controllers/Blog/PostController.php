@@ -3,9 +3,9 @@
 namespace App\Http\Controllers\Blog;
 
 use App\Models\Blog\Tag;
-use App\Models\Blog\TagTranslation;
 use Illuminate\Http\Request;
 use App\Services\PostService;
+use App\Models\Blog\TagTranslation;
 use App\Http\Controllers\Controller;
 use App\Models\Blog\PostTranslation;
 use Illuminate\Contracts\Support\Renderable;

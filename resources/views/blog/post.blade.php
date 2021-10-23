@@ -17,6 +17,12 @@
 
         <!-- @todo render json content correctly after editor is installed -->
         @json($post->translate('content'))
+
+        <footer>
+            @foreach($post->getTranslatedTags() as $tag)
+                <span class="badge bg-secondary"><a href="{{ route('posts.tag', [$tag->translation()]) }}" class="text-white text-decoration-none">{{ $tag->translate('title') }}</a></span>
+            @endforeach
+        </footer>
     </article>
 
 @endsection

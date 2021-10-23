@@ -2,9 +2,9 @@
 
 namespace App\Services;
 
+use App\Models\Blog\Tag;
 use App\Models\Blog\Post;
 use App\Models\Blog\Category;
-use App\Models\Blog\Tag;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Contracts\Pagination\LengthAwarePaginator;
 
