@@ -1,0 +1,25 @@
+$white:    #fff !default;
+$gray-50: #F8FAFC !default;
+$gray-100: #F1F5F9 !default;
+$gray-200: #E2E8F0 !default;
+$gray-300: #CBD5E1 !default;
+$gray-400: #94A3B8 !default;
+$gray-500: #64748B !default;
+$gray-600: #475569 !default;
+$gray-700: #334155 !default;
+$gray-800: #1E293B !default;
+$gray-900: #0F172A !default;
+$black:    #000 !default;
+
+$grays: (
+    "50": $gray-50,
+    "100": $gray-100,
+    "200": $gray-200,
+    "300": $gray-300,
+    "400": $gray-400,
+    "500": $gray-500,
+    "600": $gray-600,
+    "700": $gray-700,
+    "800": $gray-800,
+    "900": $gray-900
+);

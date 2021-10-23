@@ -1,0 +1,89 @@
+@import "variables_resume";
+
+@import "~bootstrap";
+
+@import "~@fortawesome/fontawesome-free/scss/fontawesome";
+@import "~@fortawesome/fontawesome-free/scss/regular";
+@import "~@fortawesome/fontawesome-free/scss/brands";
+@import "~@fortawesome/fontawesome-free/scss/solid";
+@import "~@fortawesome/fontawesome-free/scss/v4-shims";
+
+@import "utilities";
+
+@import "https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,700;1,400;1,700&display=swap";
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Poppins', sans-serif;
+}
+
+.bg-primary-dark {
+    background-color: darken($primary, 15%);
+}
+.text-primary-lighter {
+    color: lighten($primary, 25%);
+}
+.text-primary-lightest {
+    color: lighten($primary, 35%);
+}
+
+aside {
+    .text-muted {
+        color: lighten($primary, 20%) !important;
+    }
+}
+
+.details {
+    i[class^="fa"] {
+        width: 1em;
+    }
+    a {
+        text-decoration: none;
+
+        &:hover {
+            color: lighten($primary, 25%) !important;
+        }
+    }
+}
+
+.copyright {
+    a {
+        color: lighten($primary, 25%);
+
+        &:hover {
+            color: lighten($primary, 15%);
+        }
+    }
+}
+
+main {
+    article.striped {
+        position: relative;
+        margin-left: 1.5em;
+
+        &:before {
+            content: "";
+            display: inline-block;
+            width: 3px;
+            height: 100%;
+            background-color: $secondary;
+            position: absolute;
+            left: -1em;
+            top: 10px;
+        }
+
+        h4 {
+            &:before {
+                content: "";
+                display: inline-block;
+                position: absolute;
+                width: 15px;
+                height: 15px;
+                border: 4px solid $secondary;
+                background: white;
+                border-radius: 50%;
+                left: -1.1em;
+                top: 6px;
+            }
+        }
+    }
+}
