@@ -38,7 +38,7 @@
     <div class="tags p-4">
         <h3 class="h5 fst-italic fw-normal">{{ __('Tags') }}</h3>
         @foreach($tags as $tag)
-            <span class="badge bg-secondary"><a href="#" class="text-white text-decoration-none">{{ $tag->translate('title') }}</a></span>
+            <span class="badge bg-secondary"><a href="{{ route('posts.tag', [$tag->translation()]) }}" class="text-white text-decoration-none">{{ $tag->translate('title') }}</a></span>
         @endforeach
     </div>
     <nav class="navigation p-4">

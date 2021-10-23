@@ -124,12 +124,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/davesweb/laravel-translatable.git",
-                "reference": "16dbd95d70d982c261bbb5230cbf49c356f136c4"
+                "reference": "816f39fd8f2264b5397c49e99bd67472a40d81a4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/davesweb/laravel-translatable/zipball/16dbd95d70d982c261bbb5230cbf49c356f136c4",
-                "reference": "16dbd95d70d982c261bbb5230cbf49c356f136c4",
+                "url": "https://api.github.com/repos/davesweb/laravel-translatable/zipball/816f39fd8f2264b5397c49e99bd67472a40d81a4",
+                "reference": "816f39fd8f2264b5397c49e99bd67472a40d81a4",
                 "shasum": ""
             },
             "require": {
@@ -164,7 +164,7 @@
                 "issues": "https://github.com/davesweb/laravel-translatable/issues",
                 "source": "https://github.com/davesweb/laravel-translatable/tree/main"
             },
-            "time": "2021-10-23T13:39:44+00:00"
+            "time": "2021-10-23T15:15:05+00:00"
         },
         {
             "name": "dflydev/dot-access-data",

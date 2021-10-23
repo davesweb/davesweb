@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers\Blog;
 
+use App\Models\Blog\Tag;
+use App\Models\Blog\TagTranslation;
 use Illuminate\Http\Request;
 use App\Services\PostService;
 use App\Http\Controllers\Controller;
@@ -31,6 +33,18 @@ class PostController extends Controller
     public function archive(PostService $service, int $year, int $month): Renderable
     {
         $posts = $service->getArchivedPosts($year, $month);
+
+        return view('blog.index', [
+            'posts' => $posts,
+        ]);
+    }
+
+    public function tag(PostService $service, TagTranslation $tagTranslation): Renderable
+    {
+        /** @var Tag $tag */
+        $tag = $tagTranslation->getTranslatesModel();
+
+        $posts = $service->allByTag($tag);
 
         return view('blog.index', [
             'posts' => $posts,

@@ -27,4 +27,6 @@ $router->get('archive/{year}/{month}', [PostController::class, 'archive'])->name
 
 $router->get('search', [PostController::class, 'search'])->name('posts.search');
 
+$router->get('tag/{tag_translation:slug}', [PostController::class, 'tag'])->name('posts.tag');
+
 $router->get('{post_translation:slug}', [PostController::class, 'show'])->name('posts.show');

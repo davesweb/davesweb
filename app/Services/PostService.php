@@ -4,6 +4,7 @@ namespace App\Services;
 
 use App\Models\Blog\Post;
 use App\Models\Blog\Category;
+use App\Models\Blog\Tag;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Contracts\Pagination\LengthAwarePaginator;
 
@@ -51,6 +52,19 @@ class PostService
             ->where('status', '=', Post::STATUS_PUBLISHED)
             ->paginate()
         ;
+    }
+
+    public function allByTag(Tag $tag): LengthAwarePaginator
+    {
+        return $tag->posts()
+            ->whereHas('translations', function (Builder $query) {
+                $query->where('locale', '=', app()->getLocale());
+            })
+            ->with(['translations'])
+            ->where('publish_date', '<=', now())
+            ->where('status', '=', Post::STATUS_PUBLISHED)
+            ->paginate()
+            ;
     }
 
     private function baseQuery(): Builder
