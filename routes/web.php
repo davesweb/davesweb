@@ -2,6 +2,7 @@
 
 use Illuminate\Routing\Router;
 use App\Http\Controllers\Blog\PostController;
+use App\Http\Controllers\Blog\CategoryController;
 use App\Http\Controllers\Blog\HomepageController;
 
 /*
@@ -19,8 +20,8 @@ use App\Http\Controllers\Blog\HomepageController;
 
 $router->get('/', [HomepageController::class, 'index'])->name('homepage');
 
-$router->get('categories', function () {})->name('categories');
-$router->get('category/{category_translation:slug}', function () {})->name('categories.show');
+$router->get('categories', [CategoryController::class, 'index'])->name('categories');
+$router->get('category/{category_translation:slug}', [CategoryController::class, 'show'])->name('categories.show');
 
 $router->get('archive/{year}/{month}', [PostController::class, 'archive'])->name('archives.show');
 
