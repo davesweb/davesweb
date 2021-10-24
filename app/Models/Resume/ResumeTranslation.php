@@ -7,10 +7,10 @@ use Davesweb\LaravelTranslatable\Models\TranslationModel;
 
 /**
  * @property int    $id
- * @property int    $skill_category_id
- * @property string $title
+ * @property string $title    The title of the person this resume belongs to
+ * @property array  $about_me The introductory text for the resume
  */
-class SkillCategoryTranslation extends TranslationModel
+class ResumeTranslation extends TranslationModel
 {
     use HasFactory;
 
@@ -23,7 +23,8 @@ class SkillCategoryTranslation extends TranslationModel
      * {@inheritdoc}
      */
     protected $casts = [
-        'id'                => 'integer',
-        'skill_category_id' => 'integer',
+        'id'        => 'integer',
+        'resume_id' => 'integer',
+        'about_me'  => 'array',
     ];
 }

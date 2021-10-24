@@ -6,14 +6,10 @@ use Illuminate\Database\Migrations\Migration;
 
 class CreateSkillsTable extends Migration
 {
-    /**
-     * Run the migrations.
-     */
-    public function up()
+    public function up(): void
     {
         Schema::create('skills', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('category_id')->references('id')->on('skill_categories')->cascadeOnUpdate()->cascadeOnDelete();
             $table->unsignedInteger('score')->default(0);
             $table->timestamps();
         });
@@ -26,10 +22,7 @@ class CreateSkillsTable extends Migration
         });
     }
 
-    /**
-     * Reverse the migrations.
-     */
-    public function down()
+    public function down(): void
     {
         Schema::dropIfExists('skill_translations');
         Schema::dropIfExists('skills');

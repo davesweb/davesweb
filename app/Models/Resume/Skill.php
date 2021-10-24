@@ -2,16 +2,16 @@
 
 namespace App\Models\Resume;
 
+use Illuminate\Support\Collection;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Davesweb\LaravelTranslatable\Traits\HasTranslations;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
 /**
- * @property int           $id
- * @property int           $category_id
- * @property int           $score
- * @property SkillCategory $category
+ * @property int                 $id
+ * @property int                 $score
+ * @property Collection|Resume[] $resumes
  */
 class Skill extends Model
 {
@@ -22,12 +22,11 @@ class Skill extends Model
      * {@inheritdoc}
      */
     protected $casts = [
-        'id'          => 'integer',
-        'category_id' => 'integer',
+        'id' => 'integer',
     ];
 
-    public function category(): BelongsTo
+    public function resumes(): BelongsToMany
     {
-        return $this->belongsTo(SkillCategory::class, 'category_id', 'id');
+        return $this->belongsToMany(Resume::class, 'resume_skills', 'skill_id', 'resume_id', 'id', 'id');
     }
 }

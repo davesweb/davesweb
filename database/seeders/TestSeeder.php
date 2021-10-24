@@ -76,6 +76,8 @@ class TestSeeder extends Seeder
         $this->aboutMe();
         $this->socials();
         $this->copyright();
+
+        $this->call(ResumeSeeder::class);
     }
 
     private function aboutMe()
