@@ -37,154 +37,164 @@
                                     </footer>
                                 </article>
                             @endforeach
-                            <article class="striped pb-5">
-                                <header class="d-flex justify-content-between align-items-start">
-                                    <h4 class="fs-5">Laravel & PHP Developer<br /><span class="text-muted fs-7">Maatwebsite, Meerssen</span></h4>
-                                    <span class="text-muted ms-auto fs-7">jan 2017 - heden</span>
-                                </header>
-                                <p>
-                                    In aliquam urna lectus, at volutpat quam lobortis quis. In pharetra nisl non massa aliquam rhoncus. Praesent vel commodo ipsum, ut accumsan odio. Nullam lacus augue, elementum a dictum nec, dapibus et risus. Nunc non urna nunc. Nunc et lacus dolor. Cras viverra mauris ut lacus varius scelerisque. Praesent maximus euismod porta. Donec mattis lacinia risus, eget consectetur nulla scelerisque in.
-                                </p>
-                                <footer>
-                                    <span class="badge bg-secondary">PHP</span>
-                                    <span class="badge bg-secondary">Laravel</span>
-                                    <span class="badge bg-secondary">MySQL</span>
-                                    <span class="badge bg-secondary">Redis</span>
-                                    <span class="badge bg-secondary">Elasticsearch</span>
-                                    <span class="badge bg-secondary">Docker</span>
-                                    <span class="badge bg-secondary">Javascript</span>
-                                    <span class="badge bg-secondary">Node</span>
-                                    <span class="badge bg-secondary">Unit testing</span>
-                                    <span class="badge bg-secondary">Laravel Dusk</span>
-                                    <span class="badge bg-secondary">Statamic</span>
-                                </footer>
-                            </article>
+{{--                            <article class="striped pb-5">--}}
+{{--                                <header class="d-flex justify-content-between align-items-start">--}}
+{{--                                    <h4 class="fs-5">Laravel & PHP Developer<br /><span class="text-muted fs-7">Maatwebsite, Meerssen</span></h4>--}}
+{{--                                    <span class="text-muted ms-auto fs-7">jan 2017 - heden</span>--}}
+{{--                                </header>--}}
+{{--                                <p>--}}
+{{--                                    In aliquam urna lectus, at volutpat quam lobortis quis. In pharetra nisl non massa aliquam rhoncus. Praesent vel commodo ipsum, ut accumsan odio. Nullam lacus augue, elementum a dictum nec, dapibus et risus. Nunc non urna nunc. Nunc et lacus dolor. Cras viverra mauris ut lacus varius scelerisque. Praesent maximus euismod porta. Donec mattis lacinia risus, eget consectetur nulla scelerisque in.--}}
+{{--                                </p>--}}
+{{--                                <footer>--}}
+{{--                                    <span class="badge bg-secondary">PHP</span>--}}
+{{--                                    <span class="badge bg-secondary">Laravel</span>--}}
+{{--                                    <span class="badge bg-secondary">MySQL</span>--}}
+{{--                                    <span class="badge bg-secondary">Redis</span>--}}
+{{--                                    <span class="badge bg-secondary">Elasticsearch</span>--}}
+{{--                                    <span class="badge bg-secondary">Docker</span>--}}
+{{--                                    <span class="badge bg-secondary">Javascript</span>--}}
+{{--                                    <span class="badge bg-secondary">Node</span>--}}
+{{--                                    <span class="badge bg-secondary">Unit testing</span>--}}
+{{--                                    <span class="badge bg-secondary">Laravel Dusk</span>--}}
+{{--                                    <span class="badge bg-secondary">Statamic</span>--}}
+{{--                                </footer>--}}
+{{--                            </article>--}}
 
-                            <article class="striped pb-5">
-                                <header class="d-flex justify-content-between align-items-start">
-                                    <h4 class="fs-5">Co-founder<br /><span class="text-muted fs-7">One Tree Concepts, Brunssum</span></h4>
-                                    <span class="text-muted ms-auto fs-7">2011 - heden</span>
-                                </header>
-                                <p>
-                                    In aliquam urna lectus, at volutpat quam lobortis quis. In pharetra nisl non massa aliquam rhoncus. Praesent vel commodo ipsum, ut accumsan odio. Nullam lacus augue, elementum a dictum nec, dapibus et risus. Nunc non urna nunc. Nunc et lacus dolor. Cras viverra mauris ut lacus varius scelerisque. Praesent maximus euismod porta. Donec mattis lacinia risus, eget consectetur nulla scelerisque in.
-                                </p>
-                                <footer>
-                                    <span class="badge bg-secondary">PHP</span>
-                                    <span class="badge bg-secondary">Laravel</span>
-                                    <span class="badge bg-secondary">MySQL</span>
-                                    <span class="badge bg-secondary">Docker</span>
-                                    <span class="badge bg-secondary">Javascript</span>
-                                    <span class="badge bg-secondary">Node</span>
-                                    <span class="badge bg-secondary">Unit testing</span>
-                                    <span class="badge bg-secondary">Online marketing</span>
-                                    <span class="badge bg-secondary">Email marketing</span>
-                                    <span class="badge bg-secondary">Email Feedback loops</span>
-                                </footer>
-                            </article>
+{{--                            <article class="striped pb-5">--}}
+{{--                                <header class="d-flex justify-content-between align-items-start">--}}
+{{--                                    <h4 class="fs-5">Co-founder<br /><span class="text-muted fs-7">One Tree Concepts, Brunssum</span></h4>--}}
+{{--                                    <span class="text-muted ms-auto fs-7">2011 - heden</span>--}}
+{{--                                </header>--}}
+{{--                                <p>--}}
+{{--                                    In aliquam urna lectus, at volutpat quam lobortis quis. In pharetra nisl non massa aliquam rhoncus. Praesent vel commodo ipsum, ut accumsan odio. Nullam lacus augue, elementum a dictum nec, dapibus et risus. Nunc non urna nunc. Nunc et lacus dolor. Cras viverra mauris ut lacus varius scelerisque. Praesent maximus euismod porta. Donec mattis lacinia risus, eget consectetur nulla scelerisque in.--}}
+{{--                                </p>--}}
+{{--                                <footer>--}}
+{{--                                    <span class="badge bg-secondary">PHP</span>--}}
+{{--                                    <span class="badge bg-secondary">Laravel</span>--}}
+{{--                                    <span class="badge bg-secondary">MySQL</span>--}}
+{{--                                    <span class="badge bg-secondary">Docker</span>--}}
+{{--                                    <span class="badge bg-secondary">Javascript</span>--}}
+{{--                                    <span class="badge bg-secondary">Node</span>--}}
+{{--                                    <span class="badge bg-secondary">Unit testing</span>--}}
+{{--                                    <span class="badge bg-secondary">Online marketing</span>--}}
+{{--                                    <span class="badge bg-secondary">Email marketing</span>--}}
+{{--                                    <span class="badge bg-secondary">Email Feedback loops</span>--}}
+{{--                                </footer>--}}
+{{--                            </article>--}}
 
-                            <article class="striped pb-5">
-                                <header class="d-flex justify-content-between align-items-start">
-                                    <h4 class="fs-5">Lead developer<br /><span class="text-muted fs-7">Ladymail, Tilburg</span></h4>
-                                    <span class="text-muted ms-auto fs-7">? - 2016</span>
-                                </header>
-                                <p>
-                                    In aliquam urna lectus, at volutpat quam lobortis quis. In pharetra nisl non massa aliquam rhoncus. Praesent vel commodo ipsum, ut accumsan odio. Nullam lacus augue, elementum a dictum nec, dapibus et risus. Nunc non urna nunc. Nunc et lacus dolor. Cras viverra mauris ut lacus varius scelerisque. Praesent maximus euismod porta. Donec mattis lacinia risus, eget consectetur nulla scelerisque in.
-                                </p>
-                                <footer>
-                                    <span class="badge bg-secondary">PHP</span>
-                                    <span class="badge bg-secondary">Symfony</span>
-                                    <span class="badge bg-secondary">MySQL</span>
-                                    <span class="badge bg-secondary">Javascript</span>
-                                    <span class="badge bg-secondary">Online marketing</span>
-                                    <span class="badge bg-secondary">Email marketing</span>
-                                    <span class="badge bg-secondary">Email Feedback loops</span>
-                                    <span class="badge bg-secondary">Spaarpgrogramma's</span>
-                                </footer>
-                            </article>
+{{--                            <article class="striped pb-5">--}}
+{{--                                <header class="d-flex justify-content-between align-items-start">--}}
+{{--                                    <h4 class="fs-5">Lead developer<br /><span class="text-muted fs-7">Ladymail, Tilburg</span></h4>--}}
+{{--                                    <span class="text-muted ms-auto fs-7">? - 2016</span>--}}
+{{--                                </header>--}}
+{{--                                <p>--}}
+{{--                                    In aliquam urna lectus, at volutpat quam lobortis quis. In pharetra nisl non massa aliquam rhoncus. Praesent vel commodo ipsum, ut accumsan odio. Nullam lacus augue, elementum a dictum nec, dapibus et risus. Nunc non urna nunc. Nunc et lacus dolor. Cras viverra mauris ut lacus varius scelerisque. Praesent maximus euismod porta. Donec mattis lacinia risus, eget consectetur nulla scelerisque in.--}}
+{{--                                </p>--}}
+{{--                                <footer>--}}
+{{--                                    <span class="badge bg-secondary">PHP</span>--}}
+{{--                                    <span class="badge bg-secondary">Symfony</span>--}}
+{{--                                    <span class="badge bg-secondary">MySQL</span>--}}
+{{--                                    <span class="badge bg-secondary">Javascript</span>--}}
+{{--                                    <span class="badge bg-secondary">Online marketing</span>--}}
+{{--                                    <span class="badge bg-secondary">Email marketing</span>--}}
+{{--                                    <span class="badge bg-secondary">Email Feedback loops</span>--}}
+{{--                                    <span class="badge bg-secondary">Spaarpgrogramma's</span>--}}
+{{--                                </footer>--}}
+{{--                            </article>--}}
 
-                            <article class="striped mb-5">
-                                <header class="d-flex justify-content-between align-items-start">
-                                    <h4 class="fs-5">PHP developer<br /><span class="text-muted fs-7">Sevbo MD, Brunssum</span></h4>
-                                    <span class="text-muted ms-auto fs-7">? - ?</span>
-                                </header>
-                                <p>
-                                    In aliquam urna lectus, at volutpat quam lobortis quis. In pharetra nisl non massa aliquam rhoncus. Praesent vel commodo ipsum, ut accumsan odio. Nullam lacus augue, elementum a dictum nec, dapibus et risus. Nunc non urna nunc. Nunc et lacus dolor. Cras viverra mauris ut lacus varius scelerisque. Praesent maximus euismod porta. Donec mattis lacinia risus, eget consectetur nulla scelerisque in.
-                                </p>
-                                <footer>
-                                    <span class="badge bg-secondary">PHP</span>
-                                    <span class="badge bg-secondary">MySQL</span>
-                                    <span class="badge bg-secondary">Javascript</span>
-                                    <span class="badge bg-secondary">CSS</span>
-                                </footer>
-                            </article>
-                        </section>
+{{--                            <article class="striped mb-5">--}}
+{{--                                <header class="d-flex justify-content-between align-items-start">--}}
+{{--                                    <h4 class="fs-5">PHP developer<br /><span class="text-muted fs-7">Sevbo MD, Brunssum</span></h4>--}}
+{{--                                    <span class="text-muted ms-auto fs-7">? - ?</span>--}}
+{{--                                </header>--}}
+{{--                                <p>--}}
+{{--                                    In aliquam urna lectus, at volutpat quam lobortis quis. In pharetra nisl non massa aliquam rhoncus. Praesent vel commodo ipsum, ut accumsan odio. Nullam lacus augue, elementum a dictum nec, dapibus et risus. Nunc non urna nunc. Nunc et lacus dolor. Cras viverra mauris ut lacus varius scelerisque. Praesent maximus euismod porta. Donec mattis lacinia risus, eget consectetur nulla scelerisque in.--}}
+{{--                                </p>--}}
+{{--                                <footer>--}}
+{{--                                    <span class="badge bg-secondary">PHP</span>--}}
+{{--                                    <span class="badge bg-secondary">MySQL</span>--}}
+{{--                                    <span class="badge bg-secondary">Javascript</span>--}}
+{{--                                    <span class="badge bg-secondary">CSS</span>--}}
+{{--                                </footer>--}}
+{{--                            </article>--}}
+{{--                        </section>--}}
 
                         <section class="projects mb-5">
                             <h2 class="text-primary">{{ __('Skills & proficiency') }}</h2>
-                            <div class="row mb-2">
-                                <div class="col-3"><strong>PHP</strong></div>
-                                <div class="col-9">
-                                    <div class="progress">
-                                        <div class="progress-bar" role="progressbar" style="width: 100%" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
+                            @foreach($resume->getTranslatedSkills() as $skill)
+                                <div class="row mb-2">
+                                    <div class="col-3"><strong>{{ $skill->translate('title') }}</strong></div>
+                                    <div class="col-9">
+                                        <div class="progress">
+                                            <div class="progress-bar" role="progressbar" style="width: {{ $skill->pivot->score }}%" aria-valuenow="{{ $skill->pivot->score }}" aria-valuemin="0" aria-valuemax="100"></div>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="row mb-2">
-                                <div class="col-3"><strong>Laravel</strong></div>
-                                <div class="col-9">
-                                    <div class="progress">
-                                        <div class="progress-bar" role="progressbar" style="width: 100%" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="row mb-2">
-                                <div class="col-3"><strong>SQL</strong></div>
-                                <div class="col-9">
-                                    <div class="progress">
-                                        <div class="progress-bar" role="progressbar" style="width: 98%" aria-valuenow="98" aria-valuemin="0" aria-valuemax="100"></div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="row mb-2">
-                                <div class="col-3"><strong>Javascript</strong></div>
-                                <div class="col-9">
-                                    <div class="progress">
-                                        <div class="progress-bar" role="progressbar" style="width: 95%" aria-valuenow="95" aria-valuemin="0" aria-valuemax="100"></div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="row mb-2">
-                                <div class="col-3"><strong>Rest API's</strong></div>
-                                <div class="col-9">
-                                    <div class="progress">
-                                        <div class="progress-bar" role="progressbar" style="width: 90%" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"></div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="row mb-2">
-                                <div class="col-3"><strong>CSS, Sass, Less</strong></div>
-                                <div class="col-9">
-                                    <div class="progress">
-                                        <div class="progress-bar" role="progressbar" style="width: 85%" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100"></div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="row mb-2">
-                                <div class="col-3"><strong>Redis, RabbitMQ</strong></div>
-                                <div class="col-9">
-                                    <div class="progress">
-                                        <div class="progress-bar" role="progressbar" style="width: 70%" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100"></div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="row mb-2">
-                                <div class="col-3"><strong>Python</strong></div>
-                                <div class="col-9">
-                                    <div class="progress">
-                                        <div class="progress-bar" role="progressbar" style="width: 40%" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100"></div>
-                                    </div>
-                                </div>
-                            </div>
+                            @endforeach
+{{--                            <div class="row mb-2">--}}
+{{--                                <div class="col-3"><strong>PHP</strong></div>--}}
+{{--                                <div class="col-9">--}}
+{{--                                    <div class="progress">--}}
+{{--                                        <div class="progress-bar" role="progressbar" style="width: 100%" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>--}}
+{{--                                    </div>--}}
+{{--                                </div>--}}
+{{--                            </div>--}}
+{{--                            <div class="row mb-2">--}}
+{{--                                <div class="col-3"><strong>Laravel</strong></div>--}}
+{{--                                <div class="col-9">--}}
+{{--                                    <div class="progress">--}}
+{{--                                        <div class="progress-bar" role="progressbar" style="width: 100%" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>--}}
+{{--                                    </div>--}}
+{{--                                </div>--}}
+{{--                            </div>--}}
+{{--                            <div class="row mb-2">--}}
+{{--                                <div class="col-3"><strong>SQL</strong></div>--}}
+{{--                                <div class="col-9">--}}
+{{--                                    <div class="progress">--}}
+{{--                                        <div class="progress-bar" role="progressbar" style="width: 98%" aria-valuenow="98" aria-valuemin="0" aria-valuemax="100"></div>--}}
+{{--                                    </div>--}}
+{{--                                </div>--}}
+{{--                            </div>--}}
+{{--                            <div class="row mb-2">--}}
+{{--                                <div class="col-3"><strong>Javascript</strong></div>--}}
+{{--                                <div class="col-9">--}}
+{{--                                    <div class="progress">--}}
+{{--                                        <div class="progress-bar" role="progressbar" style="width: 95%" aria-valuenow="95" aria-valuemin="0" aria-valuemax="100"></div>--}}
+{{--                                    </div>--}}
+{{--                                </div>--}}
+{{--                            </div>--}}
+{{--                            <div class="row mb-2">--}}
+{{--                                <div class="col-3"><strong>Rest API's</strong></div>--}}
+{{--                                <div class="col-9">--}}
+{{--                                    <div class="progress">--}}
+{{--                                        <div class="progress-bar" role="progressbar" style="width: 90%" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"></div>--}}
+{{--                                    </div>--}}
+{{--                                </div>--}}
+{{--                            </div>--}}
+{{--                            <div class="row mb-2">--}}
+{{--                                <div class="col-3"><strong>CSS, Sass, Less</strong></div>--}}
+{{--                                <div class="col-9">--}}
+{{--                                    <div class="progress">--}}
+{{--                                        <div class="progress-bar" role="progressbar" style="width: 85%" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100"></div>--}}
+{{--                                    </div>--}}
+{{--                                </div>--}}
+{{--                            </div>--}}
+{{--                            <div class="row mb-2">--}}
+{{--                                <div class="col-3"><strong>Redis, RabbitMQ</strong></div>--}}
+{{--                                <div class="col-9">--}}
+{{--                                    <div class="progress">--}}
+{{--                                        <div class="progress-bar" role="progressbar" style="width: 70%" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100"></div>--}}
+{{--                                    </div>--}}
+{{--                                </div>--}}
+{{--                            </div>--}}
+{{--                            <div class="row mb-2">--}}
+{{--                                <div class="col-3"><strong>Python</strong></div>--}}
+{{--                                <div class="col-9">--}}
+{{--                                    <div class="progress">--}}
+{{--                                        <div class="progress-bar" role="progressbar" style="width: 40%" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100"></div>--}}
+{{--                                    </div>--}}
+{{--                                </div>--}}
+{{--                            </div>--}}
                         </section>
 
                         <section class="projects">

@@ -10,7 +10,6 @@ class CreateSkillsTable extends Migration
     {
         Schema::create('skills', function (Blueprint $table) {
             $table->id();
-            $table->unsignedInteger('score')->default(0);
             $table->timestamps();
         });
 

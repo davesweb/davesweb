@@ -3,9 +3,9 @@
 namespace App\Models\Resume;
 
 use App\Models\Blog\Tag;
-use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Support\Collection;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Davesweb\LaravelTranslatable\Traits\HasTranslations;
@@ -37,7 +37,7 @@ class Experience extends Model
 
     public function tags(): BelongsToMany
     {
-        return $this->belongsToMany(Tag::class, 'experience_tags', 'experience_id', 'tag_id', 'id', 'id');
+        return $this->belongsToMany(Tag::class, 'experience_tags');
     }
 
     public function getTranslatedTags(): Collection
@@ -46,6 +46,7 @@ class Experience extends Model
             ->whereHas('translations', function (Builder $query) {
                 $query->where('locale', '=', app()->getLocale());
             })
-            ->get();
+            ->get()
+        ;
     }
 }

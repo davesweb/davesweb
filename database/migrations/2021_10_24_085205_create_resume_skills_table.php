@@ -11,6 +11,7 @@ class CreateResumeSkillsTable extends Migration
         Schema::create('resume_skills', function (Blueprint $table) {
             $table->foreignId('resume_id')->references('id')->on('resumes')->cascadeOnUpdate()->cascadeOnDelete();
             $table->foreignId('skill_id')->references('id')->on('skills')->cascadeOnUpdate()->cascadeOnDelete();
+            $table->unsignedInteger('score')->default(0);
 
             $table->primary(['resume_id', 'skill_id']);
         });

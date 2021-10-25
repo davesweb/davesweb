@@ -2,9 +2,9 @@
 
 namespace App\Models\Resume;
 
-use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Support\Collection;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Davesweb\LaravelTranslatable\Traits\HasTranslations;
@@ -30,7 +30,18 @@ class Resume extends Model
 
     public function skills(): BelongsToMany
     {
-        return $this->belongsToMany(Skill::class, 'resume_skills', 'resume_id', 'skill_id', 'ic', 'id');
+        return $this->belongsToMany(Skill::class, 'resume_skills');
+    }
+
+    public function getTranslatedSkills(): Collection
+    {
+        return $this->skills()
+            ->whereHas('translations', function (Builder $query) {
+                $query->where('locale', '=', app()->getLocale());
+            })
+            ->withPivot('score')
+            ->get()
+        ;
     }
 
     public function experiences(): HasMany
@@ -38,12 +49,13 @@ class Resume extends Model
         return $this->hasMany(Experience::class, 'resume_id', 'id');
     }
 
-    public function getTranslatedExperiences():Collection
+    public function getTranslatedExperiences(): Collection
     {
         return $this->experiences()
             ->whereHas('translations', function (Builder $query) {
                 $query->where('locale', '=', app()->getLocale());
             })
-            ->get();
+            ->get()
+        ;
     }
 }
