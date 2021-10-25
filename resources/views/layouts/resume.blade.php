@@ -325,15 +325,32 @@
                                 </li>
                             </ul>
                         </div>
-                        <div class="languages py-4 px-5 text-light">
-                            <h5>{{ __('Languages') }}</h5>
-                            <ul class="list-unstyled">
-                                <li>Dutch <span class="text-muted">(Native)</span></li>
-                                <li>English <span class="text-muted">(Fluent)</span></li>
-                                <li>German <span class="text-muted">(Conversational)</span></li>
-                                <li>Spanish <span class="text-muted">(Basic)</span></li>
-                            </ul>
-                        </div>
+                        @if(count($resume->languages) > 0)
+                            <div class="languages py-4 px-5 text-light">
+                                <h5>{{ __('Languages') }}</h5>
+                                <ul class="list-unstyled">
+                                    @foreach($resume->getOrderedLanguages() as $language)
+                                        <li>{{ langAbbrToName($language->language) }}
+                                            <span class="text-muted">
+                                                @switch($language->proficiency)
+                                                    @case(\App\Models\Resume\Language::PROFICIENCY_NATIVE)
+                                                        ({{ __('Native') }})
+                                                        @break
+                                                    @case(\App\Models\Resume\Language::PROFICIENCY_FLUENT)
+                                                        ({{ __('Fluent') }})
+                                                        @break
+                                                    @case(\App\Models\Resume\Language::PROFICIENCY_CONVERSATIONAL)
+                                                        ({{ __('Conversational') }})
+                                                        @break
+                                                    @default
+                                                        ({{ __('Basic') }})
+                                                @endswitch
+                                            </span>
+                                        </li>
+                                    @endforeach
+                                </ul>
+                            </div>
+                        @endif
                         <div class="interests py-4 px-5 text-light">
                             <h5>{{ __('Interests') }}</h5>
                             <ul class="list-unstyled">

@@ -90,4 +90,14 @@ class Resume extends Model
             ->get()
             ;
     }
+
+    public function languages(): HasMany
+    {
+        return $this->hasMany(Language::class);
+    }
+
+    public function getOrderedLanguages(): Collection
+    {
+        return $this->languages()->orderBy('proficiency', 'ASC')->get();
+    }
 }

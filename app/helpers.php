@@ -37,3 +37,19 @@ if (!function_exists('setting')) {
         return Setting::findByName($name);
     }
 }
+
+if (!function_exists('langAbbrToName')) {
+    function langAbbrToName(string $abbr): string
+    {
+        // @todo Use a config for this
+        return match ($abbr) {
+            'nl'    => __('Dutch'),
+            'en'    => __('English'),
+            'li'    => __('Limburgish'),
+            'de'    => __('German'),
+            'fr'    => __('French'),
+            'es'    => __('Spanish'),
+            default => $abbr,
+        };
+    }
+}
