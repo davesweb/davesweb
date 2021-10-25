@@ -19,6 +19,9 @@ use Illuminate\Database\Eloquent\Relations\BelongsToMany;
  * @property Collection|Experience[] $experiences
  * @property Collection|Project[]    $projects
  * @property Collection|Education[]  $educations
+ * @property Collection|Language[]   $languages
+ * @property Collection|Link[]       $links
+ * @property Collection|Interest[]   $interests
  */
 class Resume extends Model
 {
@@ -88,7 +91,7 @@ class Resume extends Model
                 $query->where('locale', '=', app()->getLocale());
             })
             ->get()
-            ;
+        ;
     }
 
     public function languages(): HasMany
@@ -104,5 +107,20 @@ class Resume extends Model
     public function links(): HasMany
     {
         return $this->hasMany(Link::class);
+    }
+
+    public function interests(): HasMany
+    {
+        return $this->hasMany(Interest::class);
+    }
+
+    public function getTranslatedInterests(): Collection
+    {
+        return $this->interests()
+            ->whereHas('translations', function (Builder $query) {
+                $query->where('locale', '=', app()->getLocale());
+            })
+            ->get()
+        ;
     }
 }

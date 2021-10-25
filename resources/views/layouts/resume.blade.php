@@ -347,15 +347,17 @@
                                 </ul>
                             </div>
                         @endif
-                        <div class="interests py-4 px-5 text-light">
-                            <h5>{{ __('Interests') }}</h5>
-                            <ul class="list-unstyled">
-                                <li>Lego sets &amp; Lego MOC's</li>
-                                <li>Gaming</li>
-                                <li>Formula 1</li>
-                                <li>Reading</li>
-                            </ul>
-                        </div>
+
+                        @if($resume->getTranslatedInterests()->count() > 0)
+                            <div class="interests py-4 px-5 text-light">
+                                <h5>{{ __('Interests') }}</h5>
+                                <ul class="list-unstyled">
+                                    @foreach($resume->getTranslatedInterests() as $interest)
+                                        <li>{{ $interest->translate('title') }}</li>
+                                    @endforeach
+                                </ul>
+                            </div>
+                        @endif
                         <div class="copyright py-4 px-5 text-light mt-auto">
                             &copy; 2005-{{ date('Y') }} - Davesweb<br />
                             <div class="fs-7 text-muted">{!! setting('copyright')->render() !!}</div>
