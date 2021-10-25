@@ -1,3 +1,6 @@
+<?php
+/** @var \App\Models\Resume\Resume $resume */
+?>
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
     <head>
@@ -20,6 +23,20 @@
 
                         <section class="experience">
                             <h2 class="text-primary">{{ __('Work experience') }}</h2>
+                            @foreach($resume->getTranslatedExperiences() as $experience)
+                                <article class="striped {{ $loop->last() ? 'mb-5' : 'pb-5' }}">
+                                    <header class="d-flex justify-content-between align-items-start">
+                                        <h4 class="fs-5">{{ $experience->translate('role') }}<br /><span class="text-muted fs-7">{{ $experience->translate('location') }}</span></h4>
+                                        <span class="text-muted ms-auto fs-7">{{ $experience->translate('timeframe') }}</span>
+                                    </header>
+                                    {!! $experience->translate('content') !!}
+                                    <footer>
+                                        @foreach($experience->getTranslatedTags() as $tag)
+                                            <span class="badge bg-secondary">{{ $tag->translate('title') }}</span>
+                                        @endforeach
+                                    </footer>
+                                </article>
+                            @endforeach
                             <article class="striped pb-5">
                                 <header class="d-flex justify-content-between align-items-start">
                                     <h4 class="fs-5">Laravel & PHP Developer<br /><span class="text-muted fs-7">Maatwebsite, Meerssen</span></h4>
@@ -267,14 +284,16 @@
                     <aside class="col-12 col-md-3 order-0 order-md-1 mh-100 bg-primary p-0 d-flex flex-column">
                         <div class="profile text-center p-4 bg-primary-dark">
                             <img src="{{ asset('images/sam-bear.jpg') }}" class="w-50 rounded-circle" />
-                            <h1 class="h2 text-primary-lighter">Dave Lemmens</h1>
-                            <h2 class="h3 text-primary-lightest">Full stack developer</h2>
+                            <h1 class="h2 text-primary-lighter">{{ $resume->name }}</h1>
+                            <h2 class="h3 text-primary-lightest">{{ $resume->translate('title') }}</h2>
                         </div>
                         <div class="details py-4 px-5">
                             <ul class="list-group list-group-flush">
-                                <li class="list-group-item bg-transparent text-light border-0 pb-0 ps-0">
-                                    <i class="fa fa-at"></i> <a href="#" class="text-light">{{ __('Email me') }}</a>
-                                </li>
+                                @if($resume->email)
+                                    <li class="list-group-item bg-transparent text-light border-0 pb-0 ps-0">
+                                        <i class="fa fa-at"></i> <a href="#" class="text-light">{{ __('Email me') }} todo: add model</a>
+                                    </li>
+                                @endif
                                 <li class="list-group-item bg-transparent text-light border-0 pb-0 ps-0">
                                     <i class="fa fa-globe"></i> <a href="{{ config('app.url') }}" class="text-light">{{ config('app.url') }}</a>
                                 </li>

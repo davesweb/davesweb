@@ -3,6 +3,7 @@
 namespace App\Models\Resume;
 
 use App\Models\Blog\Tag;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Support\Collection;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
@@ -37,5 +38,14 @@ class Experience extends Model
     public function tags(): BelongsToMany
     {
         return $this->belongsToMany(Tag::class, 'experience_tags', 'experience_id', 'tag_id', 'id', 'id');
+    }
+
+    public function getTranslatedTags(): Collection
+    {
+        return $this->tags()
+            ->whereHas('translations', function (Builder $query) {
+                $query->where('locale', '=', app()->getLocale());
+            })
+            ->get();
     }
 }

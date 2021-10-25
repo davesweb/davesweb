@@ -2,6 +2,7 @@
 
 namespace App\Models\Resume;
 
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Support\Collection;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
@@ -35,5 +36,14 @@ class Resume extends Model
     public function experiences(): HasMany
     {
         return $this->hasMany(Experience::class, 'resume_id', 'id');
+    }
+
+    public function getTranslatedExperiences():Collection
+    {
+        return $this->experiences()
+            ->whereHas('translations', function (Builder $query) {
+                $query->where('locale', '=', app()->getLocale());
+            })
+            ->get();
     }
 }
