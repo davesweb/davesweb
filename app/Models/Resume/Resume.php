@@ -17,6 +17,8 @@ use Illuminate\Database\Eloquent\Relations\BelongsToMany;
  * @property string                  $email       The email address to sent the content mails to.
  * @property Collection|Skill[]      $skills
  * @property Collection|Experience[] $experiences
+ * @property Collection|Project[]    $projects
+ * @property Collection|Education[]  $educations
  */
 class Resume extends Model
 {
@@ -72,5 +74,20 @@ class Resume extends Model
             })
             ->get()
         ;
+    }
+
+    public function educations(): HasMany
+    {
+        return $this->hasMany(Education::class);
+    }
+
+    public function getTranslatedEducations(): Collection
+    {
+        return $this->educations()
+            ->whereHas('translations', function (Builder $query) {
+                $query->where('locale', '=', app()->getLocale());
+            })
+            ->get()
+            ;
     }
 }

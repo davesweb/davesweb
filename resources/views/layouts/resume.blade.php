@@ -222,9 +222,9 @@
     {{--                                    <h4 class="fs-5">Davesweb<br /><span class="text-muted fs-7"><a href="https://davesweb.nl">https://davesweb.nl</a></span></h4>--}}
     {{--                                </header>--}}
     {{--                                <p>--}}
-    {{--                                    Davesweb is my personal homepage, which has had many forms in the past but is currently a blog where I write about my interests and where--}}
-    {{--                                    I keep the resume you're reading right now. It uses Laravel as it's base and it's an excellent app for me to try and experiment--}}
-    {{--                                    with new techniques and features that are too new or untested to use in a professional environment.--}}
+{{--                                        Davesweb is my personal homepage, which has had many forms in the past but is currently a blog where I write about my interests and where--}}
+{{--                                        I keep the resume you're reading right now. It uses Laravel as it's base and it's an excellent app for me to try and experiment--}}
+{{--                                        with new techniques and features that are too new or untested to use in a professional environment.--}}
     {{--                                </p>--}}
     {{--                                <footer>--}}
     {{--                                    <span class="badge bg-secondary">PHP</span>--}}
@@ -285,29 +285,20 @@
                             </section>
                         @endif
 
-                        <section class="education">
-                            <h2 class="text-primary">{{ __('Education') }}</h2>
-                            <article class="striped pb-5">
-                                <header class="d-flex justify-content-between align-items-start">
-                                    <h4 class="fs-5">HBO Informatica<br /><span class="text-muted fs-7">Hogeschool Zuyd, Heerlen</span></h4>
-                                    <span class="text-muted ms-auto fs-7">? - ?</span>
-                                </header>
-                                <p>
-                                    Propedeuse: Ja<br />
-                                    Diploma: nee
-                                </p>
-                            </article>
-
-                            <article class="striped mb-5">
-                                <header class="d-flex justify-content-between align-items-start">
-                                    <h4 class="fs-5">HAVO<br /><span class="text-muted fs-7">Graaf Huyn College, Geleen</span></h4>
-                                    <span class="text-muted ms-auto fs-7">? - ?</span>
-                                </header>
-                                <p>
-                                    Diploma: ja
-                                </p>
-                            </article>
-                        </section>
+                        @if($resume->getTranslatedEducations()->count() > 0)
+                            <section class="education">
+                                <h2 class="text-primary">{{ __('Education') }}</h2>
+                                @foreach($resume->getTranslatedEducations() as $education)
+                                    <article class="striped pb-5">
+                                        <header class="d-flex justify-content-between align-items-start">
+                                            <h4 class="fs-5">{{ $education->translate('title') }}<br /><span class="text-muted fs-7">{{ $education->translate('location') }}</span></h4>
+                                            <span class="text-muted ms-auto fs-7">{{ $education->translate('timeframe') }}</span>
+                                        </header>
+                                        {{ $education->translate('content') }}
+                                    </article>
+                                @endforeach
+                            </section>
+                        @endif
 
                     </main>
                     <aside class="col-12 col-md-3 order-0 order-md-1 mh-100 bg-primary p-0 d-flex flex-column">
