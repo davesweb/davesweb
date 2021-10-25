@@ -100,4 +100,9 @@ class Resume extends Model
     {
         return $this->languages()->orderBy('proficiency', 'ASC')->get();
     }
+
+    public function links(): HasMany
+    {
+        return $this->hasMany(Link::class);
+    }
 }

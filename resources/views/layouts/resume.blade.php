@@ -307,22 +307,18 @@
                             <h1 class="h2 text-primary-lighter">{{ $resume->name }}</h1>
                             <h2 class="h3 text-primary-lightest">{{ $resume->translate('title') }}</h2>
                         </div>
-                        <div class="details py-4 px-5">
+                        <div class="details py-4 ps-5">
                             <ul class="list-group list-group-flush">
                                 @if($resume->email)
                                     <li class="list-group-item bg-transparent text-light border-0 pb-0 ps-0">
                                         <i class="fa fa-at"></i> <a href="#" class="text-light">{{ __('Email me') }} todo: add model</a>
                                     </li>
                                 @endif
-                                <li class="list-group-item bg-transparent text-light border-0 pb-0 ps-0">
-                                    <i class="fa fa-globe"></i> <a href="{{ config('app.url') }}" class="text-light">{{ config('app.url') }}</a>
-                                </li>
-                                <li class="list-group-item bg-transparent text-light border-0 pb-0 ps-0">
-                                    <i class="fa fa-linkedin"></i> <a href="#" class="text-light">linkedin.com/in/me</a>
-                                </li>
-                                <li class="list-group-item bg-transparent text-light border-0 pb-0 ps-0">
-                                    <i class="fa fa-github"></i> <a href="#" class="text-light">github.com/davesweb</a>
-                                </li>
+                                @foreach($resume->links as $link)
+                                    <li class="list-group-item bg-transparent text-light border-0 pb-0 ps-0">
+                                        <i class="{{ $link->icon }}"></i> <a href="{{ $link->url }}" class="text-light" target="_blank">{{ $link->url }}</a>
+                                    </li>
+                                @endforeach
                             </ul>
                         </div>
                         @if(count($resume->languages) > 0)
