@@ -18,7 +18,7 @@
 
                         <section class="my-profile pb-5">
                             <h2 class="text-primary">{{ __('My profile') }}</h2>
-                            {!! $resume->translate('about_me') !!}
+                            @include('partials.block_content', ['content' => $resume->translate('about_me')])
                         </section>
 
                         @if($resume->getTranslatedExperiences()->count() > 0)
@@ -205,11 +205,11 @@
                             <section class="projects">
                                 <h2 class="text-primary">{{ __('Projects') }}</h2>
                                 @foreach($resume->getTranslatedProjects() as $project)
-                                    <article class="striped pb-5">
+                                    <article class="striped {{ $loop->last ? 'mb-5' : 'pb-5'}}">
                                         <header>
                                             <h4 class="fs-5">{{ $project->translate('title') }}<br /><span class="text-muted fs-7"><a href="{{ $project->translate('url') }}" target="_blank">{{ $project->translate('url') }}</a></span></h4>
                                         </header>
-                                        @json($project->translate('content'))
+                                        @include('partials.block_content', ['content' => $project->translate('content')])
                                         <footer>
                                             @foreach($project->getTranslatedTags() as $tag)
                                                 <span class="badge bg-secondary">{{ $tag->translate('title') }}</span>
