@@ -58,4 +58,19 @@ class Resume extends Model
             ->get()
         ;
     }
+
+    public function projects(): HasMany
+    {
+        return $this->hasMany(Project::class);
+    }
+
+    public function getTranslatedProjects(): Collection
+    {
+        return $this->projects()
+            ->whereHas('translations', function (Builder $query) {
+                $query->where('locale', '=', app()->getLocale());
+            })
+            ->get()
+        ;
+    }
 }
