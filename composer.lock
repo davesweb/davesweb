@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "b322af9012d6f39a132a67f8d4bd134c",
+    "content-hash": "9bc6bc438503d578086a833b65e7ed3a",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -117,6 +117,51 @@
                 }
             ],
             "time": "2021-01-20T22:51:39+00:00"
+        },
+        {
+            "name": "davesweb/dashboard",
+            "version": "dev-main",
+            "dist": {
+                "type": "path",
+                "url": "./packages/dashboard",
+                "reference": "f3ed32f7f908561e6fa00eee64c88f79cba55732"
+            },
+            "require": {
+                "illuminate/support": "^8.0",
+                "php": "^8.0"
+            },
+            "require-dev": {
+                "friendsofphp/php-cs-fixer": "^3.2"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Davesweb\\Dashboard\\ServiceProvider",
+                        "Davesweb\\Dashboard\\RouteServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Davesweb\\Dashboard\\": "src/"
+                },
+                "files": [
+                    "src/helpers.php"
+                ]
+            },
+            "scripts": {
+                "cs-fixer": [
+                    "vendor/bin/php-cs-fixer fix --allow-risky=yes"
+                ]
+            },
+            "license": [
+                "MIT"
+            ],
+            "description": "Laravel admin dashboard package",
+            "transport-options": {
+                "relative": true
+            }
         },
         {
             "name": "davesweb/laravel-translatable",
@@ -8386,12 +8431,13 @@
     "aliases": [],
     "minimum-stability": "dev",
     "stability-flags": {
+        "davesweb/dashboard": 20,
         "davesweb/laravel-translatable": 20
     },
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": {
-        "php": "^7.3|^8.0"
+        "php": "^8.0"
     },
     "platform-dev": [],
     "plugin-api-version": "2.1.0"
