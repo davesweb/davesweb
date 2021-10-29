@@ -72,7 +72,7 @@
     "repositories": [
         {
             "type": "path",
-            "url": "./packages/dashboard"
+            "url": "./../dashboard/"
         }
     ]
 }
