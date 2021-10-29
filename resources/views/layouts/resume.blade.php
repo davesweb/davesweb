@@ -6,6 +6,7 @@
     <head>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta http-equiv="X-UA-Compatible" content="ie=edge" />
 
         <title>Davesweb</title>
         <link rel="stylesheet" type="text/css" href="{{ mix('css/resume.css') }}" />
@@ -311,7 +312,7 @@
                             <ul class="list-group list-group-flush">
                                 @if($resume->email)
                                     <li class="list-group-item bg-transparent text-light border-0 pb-0 ps-0">
-                                        <i class="fa fa-at"></i> <a href="#" class="text-light">{{ __('Email me') }} todo: add model</a>
+                                        <i class="fa fa-at"></i> <a href="#" class="text-light" data-bs-toggle="modal" data-bs-target="#contact-modal">{{ __('Email me') }}</a>
                                     </li>
                                 @endif
                                 @foreach($resume->links as $link)
@@ -366,5 +367,73 @@
                 </div>
             </div>
         </div>
+
+        <div class="modal" id="contact-modal">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <form method="post" action="{{ route('contact') }}" id="contact-form">
+                        @csrf
+                        <div class="modal-header">
+                            <h5 class="modal-title">{{ __('Email me') }}</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="alert alert-success d-none"></div>
+                            <div class="mb-3 row">
+                                <label for="name" class="col-sm-3 col-form-label">{{ __('Your name') }}: *</label>
+                                <div class="col-sm-9">
+                                    <input type="text" class="form-control" id="name" name="name" value="{{ old('name') }}" required />
+                                    <div id="name-feedback" class="invalid-feedback"></div>
+                                </div>
+                            </div>
+                            <div class="mb-3 row">
+                                <label for="email" class="col-sm-3 col-form-label">{{ __('Your email address') }}: *</label>
+                                <div class="col-sm-9">
+                                    <input type="email" class="form-control" id="email" name="email" value="{{ old('email') }}" required />
+                                    <div id="email-feedback" class="invalid-feedback"></div>
+                                </div>
+                            </div>
+                            <div class="mb-3 row">
+                                <label for="phone" class="col-sm-3 col-form-label">{{ __('Your phone number') }}:</label>
+                                <div class="col-sm-9">
+                                    <input type="text" class="form-control" id="phone" name="phone" value="{{ old('phone') }}" />
+                                    <div id="phone-feedback" class="invalid-feedback"></div>
+                                </div>
+                            </div>
+                            <div class="mb-3 row">
+                                <label for="subject" class="col-sm-3 col-form-label">{{ __('Subject') }}: *</label>
+                                <div class="col-sm-9">
+                                    <input type="text" class="form-control" id="subject" name="subject" value="{{ old('subject') }}" required />
+                                    <div id="subject-feedback" class="invalid-feedback"></div>
+                                </div>
+                            </div>
+                            <div class="mb-3 row">
+                                <label for="message" class="col-sm-3 col-form-label">{{ __('Message') }}: *</label>
+                                <div class="col-sm-9">
+                                    <textarea name="message" id="message" class="form-control" rows="6" required>{{ old('message') }}</textarea>
+                                    <div id="message-feedback" class="invalid-feedback"></div>
+                                </div>
+                            </div>
+                            <div class="mb-3 row">
+                                <div class="col-sm-9 offset-3">
+                                    <span class="text-muted fs-7">
+                                        {{ __('Your IP address and your user agent string will also be recorded when you send a message.') }}
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">{{ __('Cancel') }}</button>
+                            <button type="submit" class="btn btn-primary">{{ __('Send') }}</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <script src="{{ mix('js/resume.js') }}"></script>
+        <script defer>
+            var form = new ContactForm(document.getElementById('contact-form'));
+        </script>
     </body>
 </html>

@@ -1,11 +1,11 @@
 {
-    "name": "laravel/laravel",
+    "name": "davesweb/davesweb",
     "type": "project",
-    "description": "The Laravel Framework.",
+    "description": "The Davesweb homepage.",
     "keywords": ["framework", "laravel"],
     "license": "MIT",
     "require": {
-        "php": "^7.3|^8.0",
+        "php": "^8.0",
         "davesweb/laravel-translatable": "dev-main",
         "fruitcake/laravel-cors": "^2.0",
         "guzzlehttp/guzzle": "^7.0.1",

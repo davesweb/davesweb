@@ -105,4 +105,13 @@ return [
             resource_path('views/vendor/mail'),
         ],
     ],
+
+    'to' => [
+        'resume' => [
+            'contact' => [
+                'address' => 'davesweb.resume@gmail.com',
+                'name'    => 'Davesweb',
+            ],
+        ],
+    ],
 ];
