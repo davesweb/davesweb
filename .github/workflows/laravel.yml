@@ -44,14 +44,10 @@ jobs:
       run: chmod -R 777 storage bootstrap/cache
     - name: Syntax check
       run: vendor/bin/php-cs-fixer fix --allow-risky=yes -v --dry-run --config=.php-cs-fixer.php --stop-on-violation
-    - name: Create Database
-      run: |
-        mkdir -p database
-        touch database/database.sqlite
     - name: Execute tests (Unit and Feature tests) via PHPUnit
       env:
         DB_CONNECTION: sqlite
-        DB_DATABASE: database/database.sqlite
+        DB_DATABASE: ':memory:'
       run: |
         php artisan migrate:fresh
         php artisan test --colors --testdox
