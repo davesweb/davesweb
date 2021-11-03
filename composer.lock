@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "1c1eed42fff53475b726edd651022ec7",
+    "content-hash": "9056823481e587516cba118972e7a0ee",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -224,7 +224,7 @@
             "dist": {
                 "type": "path",
                 "url": "./../dashboard",
-                "reference": "b5e096df28fbee81cb2f738016e1c2e2eb15deed"
+                "reference": "71760fc126a7c1017ffe3bd101efe3b435b699c3"
             },
             "require": {
                 "illuminate/console": "^8.0",
@@ -241,7 +241,8 @@
                     "providers": [
                         "Davesweb\\Dashboard\\ServiceProvider",
                         "Davesweb\\Dashboard\\RouteServiceProvider",
-                        "Davesweb\\Dashboard\\FortifyServiceProvider"
+                        "Davesweb\\Dashboard\\FortifyServiceProvider",
+                        "Davesweb\\Dashboard\\CrudServiceProvider"
                     ]
                 }
             },
@@ -268,28 +269,30 @@
         },
         {
             "name": "davesweb/laravel-translatable",
-            "version": "dev-main",
+            "version": "0.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/davesweb/laravel-translatable.git",
-                "reference": "816f39fd8f2264b5397c49e99bd67472a40d81a4"
+                "reference": "7bb6b3a661320f3ea20eed9f56b7faefb91664ed"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/davesweb/laravel-translatable/zipball/816f39fd8f2264b5397c49e99bd67472a40d81a4",
-                "reference": "816f39fd8f2264b5397c49e99bd67472a40d81a4",
+                "url": "https://api.github.com/repos/davesweb/laravel-translatable/zipball/7bb6b3a661320f3ea20eed9f56b7faefb91664ed",
+                "reference": "7bb6b3a661320f3ea20eed9f56b7faefb91664ed",
                 "shasum": ""
             },
             "require": {
                 "illuminate/console": "^8.0",
                 "illuminate/database": "^8.0",
+                "illuminate/filesystem": "^8.0",
                 "illuminate/support": "^8.0",
                 "php": "^8.0"
             },
             "require-dev": {
-                "friendsofphp/php-cs-fixer": "^3.2"
+                "friendsofphp/php-cs-fixer": "^3.2",
+                "orchestra/testbench": "^6.22",
+                "phpunit/phpunit": "^9.5"
             },
-            "default-branch": true,
             "type": "library",
             "extra": {
                 "laravel": {
@@ -310,9 +313,9 @@
             "description": "Add translations to Eloquent models",
             "support": {
                 "issues": "https://github.com/davesweb/laravel-translatable/issues",
-                "source": "https://github.com/davesweb/laravel-translatable/tree/main"
+                "source": "https://github.com/davesweb/laravel-translatable/tree/0.1.0"
             },
-            "time": "2021-10-23T15:15:05+00:00"
+            "time": "2021-11-03T19:53:52+00:00"
         },
         {
             "name": "dflydev/dot-access-data",
@@ -1076,16 +1079,16 @@
         },
         {
             "name": "laravel/fortify",
-            "version": "v1.8.2",
+            "version": "v1.8.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/fortify.git",
-                "reference": "a52a980b922694fbf7298ab70cc3da7fb716cfff"
+                "reference": "19f71710cb4c6a2e774aece8a8c920165a95a059"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/fortify/zipball/a52a980b922694fbf7298ab70cc3da7fb716cfff",
-                "reference": "a52a980b922694fbf7298ab70cc3da7fb716cfff",
+                "url": "https://api.github.com/repos/laravel/fortify/zipball/19f71710cb4c6a2e774aece8a8c920165a95a059",
+                "reference": "19f71710cb4c6a2e774aece8a8c920165a95a059",
                 "shasum": ""
             },
             "require": {
@@ -1135,7 +1138,7 @@
                 "issues": "https://github.com/laravel/fortify/issues",
                 "source": "https://github.com/laravel/fortify"
             },
-            "time": "2021-09-07T14:30:59+00:00"
+            "time": "2021-11-02T16:23:43+00:00"
         },
         {
             "name": "laravel/framework",
@@ -8716,8 +8719,7 @@
     "aliases": [],
     "minimum-stability": "dev",
     "stability-flags": {
-        "davesweb/dashboard": 20,
-        "davesweb/laravel-translatable": 20
+        "davesweb/dashboard": 20
     },
     "prefer-stable": true,
     "prefer-lowest": false,

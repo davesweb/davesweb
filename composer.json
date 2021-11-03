@@ -7,7 +7,7 @@
     "require": {
         "php": "^8.0",
         "davesweb/dashboard": "dev-main",
-        "davesweb/laravel-translatable": "dev-main",
+        "davesweb/laravel-translatable": "^0.1.0",
         "fruitcake/laravel-cors": "^2.0",
         "guzzlehttp/guzzle": "^7.0.1",
         "laravel/framework": "^8.54",
